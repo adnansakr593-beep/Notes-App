@@ -10,9 +10,11 @@ class NotesApp extends StatelessWidget {
   const NotesApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return MaterialApp
     (
+      theme: ThemeData.dark(),
       home: HomePage(),
     );
   }
