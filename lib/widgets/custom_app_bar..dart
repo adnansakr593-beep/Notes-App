@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/custom_search_icon.dart';
 
