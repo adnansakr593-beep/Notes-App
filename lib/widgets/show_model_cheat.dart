@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/custom_buuton.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
 class ShowModelCheat extends StatelessWidget {
@@ -6,24 +7,22 @@ class ShowModelCheat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Column(
-        children: [
+        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: const [
+            SizedBox(height: 35),
 
-          SizedBox(height: 35,),
+           CustomTextField(label: 'Title'),
 
-          CustomTextField
-          (
-            label: 'Title',
-          ),
-          SizedBox(height: 25,),
+           SizedBox(height: 25),
 
-          CustomTextField
-          (
-            label: 'Content',
-            maxlines: 5,
-          ),
+           CustomTextField(label: 'Content', maxlines: 5),
+
+           SizedBox(height: 155,),
+
+           CustomBuuton()
         ],
       ),
     );
