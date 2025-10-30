@@ -13,19 +13,14 @@ class HomePage extends StatelessWidget {
         backgroundColor: primarycolor,
         onPressed: () 
         {
-           
-          showModalBottomSheet
-          (
-            context: (context), 
-            builder: (context)
-
-            {
-              return ShowModelCheat() ;
+          showModalBottomSheet(
+            context: (context),
+            builder: (context) {
+              return ShowModelCheat();
             },
-            
           );
         },
-        child: Icon(Icons.add,color: Colors.black,),
+        child: Icon(Icons.add, color: Colors.black),
       ),
       body: CustomView(),
     );

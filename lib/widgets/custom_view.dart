@@ -17,7 +17,6 @@ class CustomView extends StatelessWidget {
           [
             CustomAppBar(),
             SizedBox(height: 15,),
-            // CustomCard()
             Expanded(child: NotesListView())
           ],
         ),

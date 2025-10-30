@@ -10,19 +10,19 @@ class ShowModelCheat extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
-            SizedBox(height: 35),
+        children: const 
+        [
+          SizedBox(height: 35),
 
-           CustomTextField(label: 'Title'),
+          CustomTextField(label: 'Title'),
 
-           SizedBox(height: 25),
+          SizedBox(height: 25),
 
-           CustomTextField(label: 'Content', maxlines: 5),
+          CustomTextField(label: 'Content', maxlines: 5),
 
-           SizedBox(height: 155,),
+          SizedBox(height: 155,),
 
-           CustomBuuton()
+          CustomBuuton()
         ],
       ),
     );
