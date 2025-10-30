@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/helper/const.dart';
 import 'package:notes_app/widgets/custom_view.dart';
 import 'package:notes_app/widgets/show_model_cheat.dart';
 
@@ -9,6 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        backgroundColor: primarycolor,
         onPressed: () 
         {
            
@@ -23,7 +25,7 @@ class HomePage extends StatelessWidget {
             
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,color: Colors.black,),
       ),
       body: CustomView(),
     );

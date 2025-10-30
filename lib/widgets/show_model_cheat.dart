@@ -13,7 +13,17 @@ class ShowModelCheat extends StatelessWidget {
 
           SizedBox(height: 35,),
 
-          CustomTextField(),
+          CustomTextField
+          (
+            label: 'Title',
+          ),
+          SizedBox(height: 25,),
+
+          CustomTextField
+          (
+            label: 'Content',
+            maxlines: 5,
+          ),
         ],
       ),
     );
