@@ -7,7 +7,7 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 25,bottom: 25,left: 12,),
+      padding: EdgeInsets.only(top: 15, bottom: 15, left: 12),
       margin: EdgeInsets.symmetric(vertical: 25),
       decoration: BoxDecoration(
         color: Colors.blueAccent,
@@ -35,12 +35,11 @@ class CustomCard extends StatelessWidget {
             ),
             trailing: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.delete, color: Colors.black,
-              size: 33,),
+              icon: Icon(Icons.delete, color: Colors.black, size: 33),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 5),
             child: Text(
               'Oct 29, 2026',
               style: GoogleFonts.poppins(
