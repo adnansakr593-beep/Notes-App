@@ -15,7 +15,17 @@ class CustomView extends StatelessWidget {
         (
           children: 
           [
-            CustomAppBar(),
+            CustomAppBar
+            (
+              label: 'Notes',
+              icon: IconButton
+              (
+                onPressed: null, 
+                icon: Icon(Icons.search),
+                color: Colors.white ,
+                
+              ),
+            ),
             SizedBox(height: 15,),
             Expanded(child: NotesListView())
           ],
