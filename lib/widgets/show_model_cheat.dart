@@ -14,7 +14,6 @@ class _ShowModelCheatState extends State<ShowModelCheat> {
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
   String? title,subTitle;
   
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -51,7 +50,8 @@ class _ShowModelCheatState extends State<ShowModelCheat> {
       
             CustomBuuton
             (
-              ontap: () {
+              ontap: () 
+              {
                if (formk.currentState!.validate())
                {
                 formk.currentState!.save();
@@ -73,35 +73,3 @@ class _ShowModelCheatState extends State<ShowModelCheat> {
   }
 }
 
-// class Columncheat extends StatefulWidget {
-//   const Columncheat({super.key});
-
-//   @override
-//   State<Columncheat> createState() => _ColumncheatState();
-// }
-
-// class _ColumncheatState extends State<Columncheat> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//           children: const 
-//           [
-//             SizedBox(height: 35),
-      
-//             CustomTextField(label: 'Title',
-//             onSaved: (valeu) 
-//             {
-              
-//             } ,),
-      
-//             SizedBox(height: 25),
-      
-//             CustomTextField(label: 'Content', maxlines: 5),
-      
-//             SizedBox(height: 155,),
-      
-//             CustomBuuton()
-//           ],
-//         );
-//   }
-// }
