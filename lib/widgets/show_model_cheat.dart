@@ -43,7 +43,6 @@ class _ShowModelCheatState extends State<ShowModelCheat> {
             );
           },
         )
-        
       ),
     );
   }
