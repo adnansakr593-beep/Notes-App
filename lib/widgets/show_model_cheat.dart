@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_buuton.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:notes_app/cubits/add_note_cubit/cubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/add_note_cubit/cubit/add_note_state.dart';
+import 'package:notes_app/widgets/add_note.dart';
 
 class ShowModelCheat extends StatefulWidget {
   const ShowModelCheat({super.key});
@@ -10,66 +13,38 @@ class ShowModelCheat extends StatefulWidget {
 }
 
 class _ShowModelCheatState extends State<ShowModelCheat> {
-  final GlobalKey <FormState> formk = GlobalKey();
+  final GlobalKey<FormState> formk = GlobalKey();
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
-  String? title,subTitle;
-  
+
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formk,
-      autovalidateMode: autovalidateMode ,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        child: Column(
-          children:  
-          [
-            const SizedBox(height: 35),
-      
-            CustomTextField
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 16.0),
+      child: SingleChildScrollView
+      (
+        child: BlocConsumer<AddNoteCubit, AddNoteState>(
+          listener: (context, state) 
+          {
+            if (state is AddNoteFaluier)
+            {
+              // ignore: avoid_print
+              print({state.errmessage});
+            }
+            if (state is AddNoteSucss)
+            {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD
             (
-              label: 'Title',
-              onSaved: (value) {
-                title = value;
-              },
-            ),
-      
-            const SizedBox(height: 25),
-      
-            CustomTextField
-            (
-              label: 'Content', 
-              maxlines: 5,
-              onSaved: (value) {
-                subTitle = value;
-                
-              },
-            ),
-      
-            const SizedBox(height: 155,),
-      
-            CustomBuuton
-            (
-              ontap: () 
-              {
-               if (formk.currentState!.validate())
-               {
-                formk.currentState!.save();
-                Navigator.pop(context);
-               }
-               else
-               {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {
-                  
-                });
-               }
-              },
-            )
-          ],
-        ),
+              inAsyncCall: state is AddNoteLoading ? true : false ,
+              child: AddNotesheat(),
+            );
+          },
+        )
+        
       ),
     );
   }
 }
-
