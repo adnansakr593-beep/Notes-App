@@ -6,7 +6,10 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context,item)
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context,item)
+      
     {
       return CustomCard();
     },);
