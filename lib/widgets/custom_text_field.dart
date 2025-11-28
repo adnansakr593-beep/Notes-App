@@ -18,30 +18,33 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField
-    (
-      validator: (value)
-      {
-        if (value?.isEmpty ?? true)
-        {
-          return 'This Field is required';
-        }
-        else
-        {
-          return null;
-        }
-      } ,
-      onSaved:  onSaved,
-      maxLines: maxlines,
-      cursorColor: primarycolor,
-      decoration: InputDecoration
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal:  16.0),
+      child: TextFormField
       (
-        
-        labelText: label,
-        labelStyle: TextStyle(color: primarycolor),
-        border: build_border(),
-        enabledBorder: build_border(),
-        focusedBorder: build_border(Color:primarycolor)
+        validator: (value)
+        {
+          if (value?.isEmpty ?? true)
+          {
+            return 'This Field is required';
+          }
+          else
+          {
+            return null;
+          }
+        } ,
+        onSaved:  onSaved,
+        maxLines: maxlines,
+        cursorColor: primarycolor,
+        decoration: InputDecoration
+        (
+          
+          labelText: label,
+          labelStyle: TextStyle(color: primarycolor),
+          border: build_border(),
+          enabledBorder: build_border(),
+          focusedBorder: build_border(Color:primarycolor)
+        ),
       ),
     );
   }

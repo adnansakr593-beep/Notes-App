@@ -20,25 +20,25 @@ class _ShowModelCheatState extends State<ShowModelCheat> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddNoteCubit(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: BlocConsumer<AddNoteCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteFaluier) {
-              // ignore: avoid_print
-              print({state.errmessage});
-            }
-            if (state is AddNoteSucss) {
-              Navigator.pop(context);
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFaluier) {
+            // ignore: avoid_print
+            print({state.errmessage});
+          }
+          if (state is AddNoteSucss) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddNoteLoading ? true : false,
+            child: ModalProgressHUD(
               inAsyncCall: state is AddNoteLoading ? true : false,
               child: SingleChildScrollView(child: AddNotesheat()),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

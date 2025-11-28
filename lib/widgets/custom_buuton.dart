@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/helper/const.dart';
 
 class CustomBuuton extends StatelessWidget {
-  const CustomBuuton({super.key, this.ontap});
+   CustomBuuton({super.key, this.ontap,this.isloading = false});
   final void Function()? ontap;
+  bool isloading ;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,9 @@ class CustomBuuton extends StatelessWidget {
         ),
         child: Center
         (
-          child: Text
+          child: isloading ? CircularProgressIndicator(
+            color: Colors.black,
+          ) : Text
           
           (
             'Add',
