@@ -46,7 +46,11 @@ class _AddNotesheatState extends State<AddNotesheat> {
             },
           ),
 
-          const SizedBox(height: 155),
+          const SizedBox(height: 25),
+
+          CustomCirculer(),
+
+          const SizedBox(height: 50),
 
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
@@ -62,7 +66,7 @@ class _AddNotesheatState extends State<AddNotesheat> {
                         'yyyy-MM-dd HH:mm',
                       ).format(DateTime.now()),
                       // ignore: deprecated_member_use
-                      color: Colors.blueAccent.value,
+                      color: colors[curentIndex].value,
                     );
                     BlocProvider.of<AddNoteCubit>(
                       context,
@@ -78,6 +82,83 @@ class _AddNotesheatState extends State<AddNotesheat> {
             },
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomCirculer extends StatefulWidget {
+  const CustomCirculer({super.key});
+
+  @override
+  State<CustomCirculer> createState() => _CustomCirculerState();
+}
+
+bool isActive0 = true;
+int curentIndex = 0;
+
+List<Color> colors = [
+  Color(0xffA8F9FF),
+  Color(0xff224695),
+  Color(0xff81A094),
+  Color(0xff775B59),
+  Color(0xff32161F),
+];
+
+class _CustomCirculerState extends State<CustomCirculer> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 80,
+      child: ListView.builder(
+        itemCount: colors.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              
+
+              curentIndex = index;
+
+              setState(() {
+                
+              });
+            },
+            child: CustomCircleavatar(
+              curentIndex: curentIndex,
+              allIndex: index,
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// ignore: must_be_immutable
+class CustomCircleavatar extends StatelessWidget {
+  CustomCircleavatar({
+    super.key,
+    required this.curentIndex,
+    required this.allIndex,
+  });
+
+  int curentIndex;
+  int allIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    bool isSelected = curentIndex == allIndex;
+
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: CircleAvatar(
+        radius: isSelected ? 48 : 44,
+        backgroundColor: isSelected ? Colors.white : Colors.transparent,
+        child: CircleAvatar(
+          radius: 36,
+          backgroundColor: colors[allIndex],
+        ),
       ),
     );
   }

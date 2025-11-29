@@ -17,7 +17,7 @@ class CustomBuuton extends StatelessWidget {
         decoration: BoxDecoration
         (
           borderRadius: BorderRadius.circular(12),
-          color: primarycolor
+          color: Colors.blueAccent
         ),
         child: Center
         (
