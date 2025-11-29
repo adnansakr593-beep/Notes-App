@@ -57,6 +57,7 @@ class _AddNotesheatState extends State<AddNotesheat> {
                       title: title!,
                       subTitle: subTitle!,
                       date: DateTime.now().toString(),
+                      // ignore: deprecated_member_use
                       color: Colors.amber.value,
                     );
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
