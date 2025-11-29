@@ -62,7 +62,7 @@ class _AddNotesheatState extends State<AddNotesheat> {
                         'yyyy-MM-dd HH:mm',
                       ).format(DateTime.now()),
                       // ignore: deprecated_member_use
-                      color: Colors.amber.value,
+                      color: Colors.blueAccent.value,
                     );
                     BlocProvider.of<AddNoteCubit>(
                       context,

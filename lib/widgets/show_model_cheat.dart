@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/cubits/add_note_cubit/cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/add_note_cubit/cubit/add_note_state.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/widgets/add_note.dart';
 
 class ShowModelCheat extends StatefulWidget {
@@ -27,6 +28,7 @@ class _ShowModelCheatState extends State<ShowModelCheat> {
             print({state.errmessage});
           }
           if (state is AddNoteSucss) {
+            BlocProvider.of<NotesCubit>(context).getAllNotes();
             Navigator.pop(context);
           }
         },
