@@ -5,6 +5,7 @@ import 'package:notes_app/cubits/add_note_cubit/cubit/add_note_state.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_buuton.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:intl/intl.dart';
 
 class AddNotesheat extends StatefulWidget {
   const AddNotesheat({super.key});
@@ -56,7 +57,7 @@ class _AddNotesheatState extends State<AddNotesheat> {
                     var noteModel = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
-                      date: DateTime.now().toString(),
+                      date: DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now()),
                       // ignore: deprecated_member_use
                       color: Colors.amber.value,
                     );

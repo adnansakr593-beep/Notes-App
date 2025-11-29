@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/pages/edit_note_page.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({super.key});
+  const CustomCard({super.key,  required this.notedata});
+  final NoteModel notedata;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class CustomCard extends StatelessWidget {
         padding: EdgeInsets.only(top: 15, bottom: 15, left: 12),
         margin: EdgeInsets.symmetric(vertical: 9),
         decoration: BoxDecoration(
-          color: Colors.blueAccent,
+          color: Color(notedata.color),
           borderRadius: BorderRadius.circular(24),
         ),
         child: Column(
@@ -26,14 +28,14 @@ class CustomCard extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                'Flutter Tips',
+                notedata.title,
                 style: GoogleFonts.poppins(color: Colors.black, fontSize: 24),
               ),
       
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: Text(
-                  'Created by Eng Adnan Sakr',
+                  notedata.subTitle,
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     color: Colors.grey[900],
@@ -49,7 +51,7 @@ class CustomCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 5),
               child: Text(
-                'Oct 29, 2026',
+                notedata.date,
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: Colors.grey[800],
