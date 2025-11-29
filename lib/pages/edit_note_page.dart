@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
-class EditNotePage extends StatelessWidget {
-  const EditNotePage({super.key});
+// ignore: must_be_immutable
+class EditNotePage extends StatefulWidget {
+   EditNotePage({super.key,required this.noteModel});
 
+  NoteModel noteModel;
+
+  @override
+  State<EditNotePage> createState() => _EditNotePageState();
+}
+
+class _EditNotePageState extends State<EditNotePage> {
+
+   String? title;
+   String? subtitle;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +31,9 @@ class EditNotePage extends StatelessWidget {
                 label: 'Edit Notes',
                 icon: IconButton(
                   onPressed: () {
+                    widget.noteModel.title = title ?? widget.noteModel.title;
+                    widget.noteModel.subTitle = subtitle ?? widget.noteModel.subTitle;
+                    BlocProvider.of<NotesCubit>(context).getAllNotes();
                     Navigator.pop(context);
                   },
                   icon: const Icon(Icons.check),
@@ -25,11 +42,25 @@ class EditNotePage extends StatelessWidget {
 
               const SizedBox(height: 55),
 
-              const CustomTextField(label: 'Title'),
+               CustomTextField
+               (
+                label: 'Title',
+                onchanged: (value)
+                {
+                  title = value;
+                },
+              ),
 
               const SizedBox(height: 25),
 
-              const CustomTextField(label: 'Content', maxlines: 5),
+              CustomTextField
+              (
+                label: 'Content', 
+                maxlines: 5,
+                onchanged: (value) {
+                  subtitle = value;
+                },
+              ),
             ],
           ),
         ),

@@ -9,12 +9,14 @@ class CustomTextField extends StatelessWidget {
       required this.label, 
       this.maxlines = 1, 
       this.onSaved, 
+      this.onchanged
       
     }
   );
   final String label;
   final int maxlines;
   final void Function(String?)? onSaved;
+  final void Function(String)? onchanged;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class CustomTextField extends StatelessWidget {
             return null;
           }
         } ,
+        onChanged: onchanged,
         onSaved:  onSaved,
         maxLines: maxlines,
         cursorColor: Colors.white,
