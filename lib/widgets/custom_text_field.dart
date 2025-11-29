@@ -35,12 +35,11 @@ class CustomTextField extends StatelessWidget {
         } ,
         onSaved:  onSaved,
         maxLines: maxlines,
-        cursorColor: primarycolor,
+        cursorColor: Colors.white,
         decoration: InputDecoration
         (
           
           labelText: label,
-          labelStyle: TextStyle(color: primarycolor),
           border: build_border(),
           enabledBorder: build_border(),
           focusedBorder: build_border(Color:primarycolor)
