@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/add_note_cubit/cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/add_note_cubit/cubit/add_note_state.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_buuton.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
@@ -57,11 +58,17 @@ class _AddNotesheatState extends State<AddNotesheat> {
                     var noteModel = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
-                      date: DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now()),
+                      date: DateFormat(
+                        'yyyy-MM-dd HH:mm',
+                      ).format(DateTime.now()),
                       // ignore: deprecated_member_use
                       color: Colors.amber.value,
                     );
-                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                    BlocProvider.of<AddNoteCubit>(
+                      context,
+                    ).addNote(noteModel, BlocProvider.of<NotesCubit>(context));
+
+                    // BlocProvider.of<AddNoteCubit>(context).addNote(noteModel,);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
