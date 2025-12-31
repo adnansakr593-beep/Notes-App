@@ -98,12 +98,13 @@ bool isActive0 = true;
 int curentIndex = 0;
 
 List<Color> colors = [
-  Color(0xffA8F9FF),
-  Color(0xff224695),
-  Color(0xff81A094),
-  Color(0xff775B59),
-  Color(0xff32161F),
+  Color(0xffFFF1E6), 
+  Color(0xffEAF4FF), 
+  Color(0xffE9F7EF),
+  Color(0xffF3ECFF), 
+  Color(0xffFFF5F7), 
 ];
+
 
 class _CustomCirculerState extends State<CustomCirculer> {
   @override

@@ -44,7 +44,7 @@ class _EditNotePageState extends State<EditNotePage> {
 
                CustomTextField
                (
-                label: 'Edit Title',
+                label: widget.noteModel.title,
                 onchanged: (value)
                 {
                   title = value;
@@ -55,7 +55,7 @@ class _EditNotePageState extends State<EditNotePage> {
 
               CustomTextField
               (
-                label: 'Edit Content', 
+                label: widget.noteModel.subTitle, 
                 maxlines: 5,
                 onchanged: (value) {
                   subtitle = value;
